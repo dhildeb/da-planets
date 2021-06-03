@@ -1,9 +1,9 @@
 import BaseController from '../utils/BaseController'
-import { starsService } from '../services/StarsService'
+import { planetsService } from '../services/PlanetsService'
 
-export class StarsController extends BaseController {
+export class PlanetsController extends BaseController {
   constructor() {
-    super('/api/star')
+    super('/api/planet')
     this.router
       .get('', this.getAll)
       .get('/:id', this.getOne)
@@ -13,8 +13,8 @@ export class StarsController extends BaseController {
 
   async getAll(req, res, next) {
     try {
-      const stars = await starsService.getAll()
-      return res.send(stars)
+      const planets = await planetsService.getAll()
+      return res.send(planets)
     } catch (error) {
       next(error)
     }
@@ -22,8 +22,8 @@ export class StarsController extends BaseController {
 
   async getOne(req, res, next) {
     try {
-      const star = await starsService.getOne(req.params.id)
-      return res.send(star)
+      const planets = await planetsService.getOne(req.params.id)
+      return res.send(planets)
     } catch (error) {
       next(error)
     }
@@ -31,8 +31,8 @@ export class StarsController extends BaseController {
 
   async create(req, res, next) {
     try {
-      const star = await starsService.create(req.body)
-      return res.send(star)
+      const planet = await planetsService.create(req.body)
+      return res.send(planet)
     } catch (error) {
       next(error)
     }
@@ -40,8 +40,8 @@ export class StarsController extends BaseController {
 
   async delete(req, res, next) {
     try {
-      const star = await starsService.delete(req.params.id)
-      return res.send(star)
+      const planet = await planetsService.delete(req.params.id)
+      return res.send(planet)
     } catch (error) {
       next(error)
     }

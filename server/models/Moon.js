@@ -3,8 +3,8 @@ const Schema = mongoose.Schema
 export const MoonSchema = new Schema(
   {
     name: { type: String, required: true },
-    Galaxy: { type: Schema.Types.ObjectId, ref: 'Galaxy', required: true },
-    star: { type: Schema.Types.ObjectId, ref: 'star', required: true },
-    planet: { type: Schema.Types.ObjectId, ref: 'planet', required: true }
+    galaxyId: { type: Schema.Types.ObjectId, ref: 'Galaxy', required: true },
+    starId: { type: Schema.Types.ObjectId, ref: 'Star', required: true },
+    planetId: { type: Schema.Types.ObjectId, ref: 'Planet', required: true }
   }, { timestamps: true, toJSON: { virtuals: true } }
 )
